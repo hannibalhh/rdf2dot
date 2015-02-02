@@ -1,0 +1,6 @@
+net/wastl/rdfdot/config/Arrows.class
+net/wastl/rdfdot/config/GraphConfiguration.class
+net/wastl/rdfdot/config/Layouts.class
+net/wastl/rdfdot/config/Styles.class
+net/wastl/rdfdot/config/Shapes.class
+net/wastl/rdfdot/GraphvizSerializer.class

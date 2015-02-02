@@ -17,13 +17,11 @@
 package net.wastl.rdfdot;
 
 import net.wastl.rdfdot.config.GraphConfiguration;
-import net.wastl.rdfdot.render.GraphvizSerializerNative;
-import org.junit.Assert;
+import net.wastl.rdfdot.render.Graphviz2DotSerializer;
 import org.junit.Before;
 import org.junit.Test;
 import org.openrdf.rio.*;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -31,16 +29,16 @@ import java.io.IOException;
  *
  * @author Sebastian Schaffert (sschaffert@apache.org)
  */
-public class TestNativeSerializer {
+public class RDF2DotTest {
 
-    private GraphvizSerializerNative serializer;
+    private Graphviz2DotSerializer serializer;
     private RDFParser                parser;
 
 
     @Before
     public void setup() {
 
-        serializer = new GraphvizSerializerNative(new GraphConfiguration());
+        serializer = new Graphviz2DotSerializer(new GraphConfiguration());
         parser     = Rio.createParser(RDFFormat.TURTLE);
         parser.setRDFHandler(new GraphvizHandler(serializer));
     }
@@ -49,8 +47,6 @@ public class TestNativeSerializer {
     @Test
     public void testDefault() throws RDFParseException, IOException, RDFHandlerException {
         parser.parse(this.getClass().getResourceAsStream("/example1.ttl"),"");
-
-        byte[] image = serializer.getResult();
-        Assert.assertTrue(image.length > 0);
+        System.out.println(serializer.toDot());
     }
 }

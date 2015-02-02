@@ -1,0 +1,7 @@
+/Users/sigurd/Repositories/rdf2dot/rdfdot-core/src/main/java/net/wastl/rdfdot/base/GraphvizSerializerBase.java
+/Users/sigurd/Repositories/rdf2dot/rdfdot-core/src/main/java/net/wastl/rdfdot/render/GraphvizSerializerCommand.java
+/Users/sigurd/Repositories/rdf2dot/rdfdot-core/src/main/java/net/wastl/rdfdot/base/GraphvizSerializerStream.java
+/Users/sigurd/Repositories/rdf2dot/rdfdot-core/src/main/java/net/wastl/rdfdot/GraphvizHandler.java
+/Users/sigurd/Repositories/rdf2dot/rdfdot-core/src/main/java/net/wastl/rdfdot/base/GraphvizSerializerString.java
+/Users/sigurd/Repositories/rdf2dot/rdfdot-core/src/main/java/net/wastl/rdfdot/exception/MaxSizeException.java
+/Users/sigurd/Repositories/rdf2dot/rdfdot-core/src/main/java/net/wastl/rdfdot/render/GraphvizSerializerNative.java

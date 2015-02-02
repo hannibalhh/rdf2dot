@@ -35,8 +35,6 @@
         <module>parent</module>
         <module>rdfdot-api</module>
         <module>rdfdot-core</module>
-        <module>rdfdot-cli</module>
-        <module>rdfdot-web</module>
     </modules>
 
 </project>
