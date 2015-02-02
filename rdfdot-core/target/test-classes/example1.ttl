@@ -1,6 +1,0 @@
-@prefix ex: <http://example.com/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-
-ex:Hans a foaf:Person ;
-        foaf:firstName "Hans" ;
-        foaf:lastName  "Meier" .
