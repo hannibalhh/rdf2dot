@@ -22,7 +22,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openrdf.rio.*;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Add file description here!
@@ -47,6 +50,11 @@ public class RDF2DotTest {
     @Test
     public void testDefault() throws RDFParseException, IOException, RDFHandlerException {
         parser.parse(this.getClass().getResourceAsStream("/example1.ttl"),"");
-        System.out.println(serializer.toDot());
+        File f = new File("example1.dot");
+        f.setWritable(true);
+        f.createNewFile();
+        PrintWriter out = new PrintWriter("example1.dot");
+        out.println(serializer.toDot());
+        out.close();
     }
 }
