@@ -8,7 +8,7 @@ First install
 
 	mvn clean install -DskipTests
 
-Java 8 is because of closures required. Probably in Mac OS you need to set JAVA_HOME
+Because of closures Java 8 is required. Probably in Mac OS you need to set JAVA_HOME
 
 	export JAVA_HOME=$(/usr/libexec/java_home)
 
