@@ -106,7 +106,7 @@ public class GraphConfiguration {
     /**
      * Fill color for RDF literal nodes
      */
-    private Color literalFill   = new Color(178, 76, 255);
+    private Color literalFill   = Color.lightGray;
 
 
     private Layouts layout      = Layouts.LEFT_RIGHT;

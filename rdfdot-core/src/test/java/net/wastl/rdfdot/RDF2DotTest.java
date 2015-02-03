@@ -1,21 +1,6 @@
-/*
- * Copyright 2014 Sebastian Schaffert (wastl@wastl.net)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package net.wastl.rdfdot;
 
+import junit.framework.Assert;
 import net.wastl.rdfdot.config.GraphConfiguration;
 import net.wastl.rdfdot.render.Graphviz2DotSerializer;
 import org.junit.Before;
@@ -25,21 +10,15 @@ import org.openrdf.rio.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Paths;
 
-/**
- * Add file description here!
- *
- * @author Sebastian Schaffert (sschaffert@apache.org)
- */
 public class RDF2DotTest {
 
     private Graphviz2DotSerializer serializer;
-    private RDFParser                parser;
-
+    private RDFParser parser;
 
     @Before
     public void setup() {
-
         serializer = new Graphviz2DotSerializer(new GraphConfiguration());
         parser     = Rio.createParser(RDFFormat.TURTLE);
         parser.setRDFHandler(new GraphvizHandler(serializer));
@@ -59,6 +38,19 @@ public class RDF2DotTest {
 
     @Test
     public void testOneMethod() throws RDFParseException, IOException, RDFHandlerException {
-        new RDF2Dot("/example1.ttl",RDFFormat.TURTLE).toDot("example2.dot");
+        new RDF2Dot("example1.ttl",RDFFormat.TURTLE).toDot("example2.dot");
+    }
+
+    @Test
+    public void testListMethod() throws RDFParseException, IOException, RDFHandlerException {
+        new RDF2Dot("examples",RDFFormat.RDFXML).toDots("dot","xml");
+    }
+
+    @Test
+    public void testPath() throws RDFParseException, IOException, RDFHandlerException {
+        RDF2Dot r = new RDF2Dot("/example1.ttl",RDFFormat.TURTLE);
+        Assert.assertEquals(r.targetPath(Paths.get("/users/"), Paths.get("/name")), Paths.get("/name"));
+        Assert.assertEquals(r.targetPath(Paths.get("/users/"), Paths.get("name")), Paths.get("/users/name"));
+        Assert.assertEquals(r.concatName(Paths.get("/users/name"), Paths.get("foo.xml"),"xml"), Paths.get("/users/name/foo.dot"));
     }
 }
