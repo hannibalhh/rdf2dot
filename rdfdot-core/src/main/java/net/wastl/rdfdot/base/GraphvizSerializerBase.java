@@ -173,6 +173,8 @@ public abstract class GraphvizSerializerBase implements GraphvizSerializer {
         if(literalNodes.size() > 0) {
             // Literal node configuration
             Options literalOptions = new Options();
+            literalOptions.addOption("margin", configuration.margin);
+            literalOptions.addOption("height", configuration.height);
             literalOptions.addOption("shape", configuration.getLiteralShape());
             literalOptions.addOption("style", configuration.getLiteralStyle());
             literalOptions.addOption("color", graphvizColor(configuration.getLiteralColor()));

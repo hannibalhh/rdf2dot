@@ -130,6 +130,8 @@ public class GraphConfiguration {
         namespaces.put(SKOS.NAMESPACE, SKOS.PREFIX);
     }
 
+    public final double height = 0.075;
+    public final double margin = 0.075;
 
     public void addNamespace(String uri, String prefix) {
         namespaces.put(uri,prefix);
