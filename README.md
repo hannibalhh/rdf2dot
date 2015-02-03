@@ -13,6 +13,7 @@ Because of closures Java 8 is required. Probably in Mac OS you need to set JAVA_
 	export JAVA_HOME=$(/usr/libexec/java_home)
 	
 If you have a dot compatible lib you can convert to grahics such as
+
 	dot -Tpdf units.dot > units.pdf
 
     
