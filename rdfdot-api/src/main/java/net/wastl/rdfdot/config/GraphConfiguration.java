@@ -115,8 +115,8 @@ public class GraphConfiguration {
     private Map<String,String> namespaces;
 
 
-    private int maxNodes = 50;
-    private int maxEdges = 100;
+    private int maxNodes = Integer.MAX_VALUE;
+    private int maxEdges = Integer.MAX_VALUE;
 
     public GraphConfiguration() {
         // initialise default namespaces

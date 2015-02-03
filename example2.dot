@@ -1,0 +1,20 @@
+digraph g { 
+  rankdir=LR;
+
+  // uri nodes
+  node[shape=oval,color="#000000",style=solid];
+  "ex:Hans" [label="ex:Hans"];
+  "foaf:Person" [label="foaf:Person"];
+
+  // literal nodes
+  node[fillcolor="#b24cff",shape=box,color="#000000",style=filled];
+  "Meier" [label="Meier"];
+  "Hans" [label="Hans"];
+
+  // edges
+  edge[color="#000000",style=solid,arrowhead=vee];
+  "ex:Hans" -> "Hans"[label="foaf:firstName"];
+  "ex:Hans" -> "Meier"[label="foaf:lastName"];
+  "ex:Hans" -> "foaf:Person"[label="rdf:type"];
+}
+

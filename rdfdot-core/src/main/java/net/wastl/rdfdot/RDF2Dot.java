@@ -1,3 +1,5 @@
+package net.wastl.rdfdot;
+
 import net.wastl.rdfdot.GraphvizHandler;
 import net.wastl.rdfdot.config.GraphConfiguration;
 import net.wastl.rdfdot.render.Graphviz2DotSerializer;
@@ -11,11 +13,14 @@ public class RDF2Dot {
     private Graphviz2DotSerializer serializer;
     private RDFParser parser;
 
-    public void RDF2Dot(String rdfPath,RDFFormat format,String dotPath) throws IOException, RDFParseException, RDFHandlerException {
+    public RDF2Dot(String rdfPath,RDFFormat format) throws IOException, RDFParseException, RDFHandlerException {
         serializer = new Graphviz2DotSerializer(new GraphConfiguration());
         parser     = Rio.createParser(format);
         parser.setRDFHandler(new GraphvizHandler(serializer));
         parser.parse(this.getClass().getResourceAsStream(rdfPath), "");
+    }
+
+    public void toDot(String dotPath) throws IOException {
         File f = new File(dotPath);
         f.setWritable(true);
         f.createNewFile();
